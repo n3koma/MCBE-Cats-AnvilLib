@@ -1,26 +1,11 @@
 import { Dimension, Entity, EntityComponentTypes, EntityQueryOptions, Player, Vector3, world } from "@minecraft/server";
+import { Vec3 } from "../math";
+import { DimensionEnum } from "../ids";
 
-import { Vec3 } from "../Core/VectorUtil";
-import { DimensionEnum } from "../World/DimensionUtil";
-
-/**
- * 対象エンティティが敵かどうかを判定する
- */
-export function isEnemy(entity: Entity): boolean {
-if (!entity?.isValid) return false;
-const typeFamily = entity.getComponent(EntityComponentTypes.TypeFamily);
-return typeFamily?.getTypeFamilies()?.includes("monster") === true;
-}
-
-/**
- * owner が敵(isEnemy===true)なら「敵じゃない相手」だけを対象にする
- * owner が敵じゃない(isEnemy===false)なら「敵」だけを対象にする
- */
-export function isValidTarget(owner: Entity, target: Entity): boolean {
-	const ownerIsEnemy = isEnemy(owner);
-	if (ownerIsEnemy) return true;
-	const targetIsEnemy = isEnemy(target);
-	return ownerIsEnemy ? !targetIsEnemy : targetIsEnemy;
+export function isMonster(entity: Entity): boolean {
+	if (!entity?.isValid) return false;
+	const typeFamily = entity.getComponent(EntityComponentTypes.TypeFamily);
+	return typeFamily?.getTypeFamilies()?.includes("monster") === true;
 }
 
 export function getAllEntity(queryOption?: EntityQueryOptions): Entity[] {
@@ -33,17 +18,16 @@ export function getAllEntity(queryOption?: EntityQueryOptions): Entity[] {
 }
 
 export function filterPlayer(entities: Entity[]): Player[] {
-	return entities.filter((e): e is Player => e?.isValid && e.typeId === "minecraft:player");
+	return entities.filter((e): e is Player => e?.isValid && e instanceof Player);
 }
 
-export function findRandomSpawnLocation(
+export function findSolidSurfaceLocation(
 	dimension: Dimension,
 	center: Vector3,
 	minDistance: number,
 	maxDistance: number,
 	options: {
 		maxAttempts?: number;
-		/** getTopmostBlock の探索上限。center.y からの相対値 */
 		yScanRange?: number;
 	} = {}
 ): Vector3 | undefined {

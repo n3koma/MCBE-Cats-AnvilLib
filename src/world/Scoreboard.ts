@@ -1,7 +1,7 @@
 import { Entity, ScoreboardIdentity, ScoreboardObjective, system, world } from "@minecraft/server";
-import { lazy } from "../Core/Lazy";
+import { lazy } from "../core/Lazy";
 
-const IDENTITY_INITIALIZATION_OBJECTIVE_NAME = "mclib:identity_init";
+const IDENTITY_INITIALIZATION_OBJECTIVE_NAME = "anvil:identity_init";
 
 export function defineStat(key: string, defaultValue: number) {
 	return {

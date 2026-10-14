@@ -1,7 +1,6 @@
-import { Dimension, DimensionLocation, Vector3, VectorXZ } from "@minecraft/server";
+import type { Dimension, DimensionLocation, Vector3, Vector2, VectorXZ } from "@minecraft/server";
 
 type VectorKeys<K extends string> = Record<K, number>;
-type Vector2 = VectorKeys<"x" | "y">;
 
 function create<K extends string>(keys: readonly K[], values: Record<K, number>): VectorKeys<K> {
 	const result = {} as VectorKeys<K>;
@@ -39,6 +38,14 @@ function divide<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: Vecto
 
 function scale<K extends string>(keys: readonly K[], value: VectorKeys<K>, scalar: number): VectorKeys<K> {
 	return mapEach(keys, value, x => x * scalar);
+}
+
+function zero<K extends string>(keys: readonly K[]): VectorKeys<K> {
+	return splat(keys, 0);
+}
+
+function one<K extends string>(keys: readonly K[]): VectorKeys<K> {
+	return splat(keys, 1);
 }
 
 function max<K extends string>(keys: readonly K[], ...v: VectorKeys<K>[]): VectorKeys<K> {
@@ -123,10 +130,12 @@ export const Vec3 = {
 	create: (values: Vector3) => create(VECTOR3_KEYS, values),
 	equal: (...v: Vector3[]) => equal(VECTOR3_KEYS, ...v),
 	add: (...v: Vector3[]) => add(VECTOR3_KEYS, ...v),
-	sub: (a: Vector3, b: Vector3) => subtract(VECTOR3_KEYS, a, b),
-	mul: (...v: Vector3[]) => multiply(VECTOR3_KEYS, ...v),
-	div: (a: Vector3, b: Vector3) => divide(VECTOR3_KEYS, a, b),
+	subtract: (a: Vector3, b: Vector3) => subtract(VECTOR3_KEYS, a, b),
+	multiply: (...v: Vector3[]) => multiply(VECTOR3_KEYS, ...v),
+	divide: (a: Vector3, b: Vector3) => divide(VECTOR3_KEYS, a, b),
 	scale: (value: Vector3, scalar: number) => scale(VECTOR3_KEYS, value, scalar),
+	zero: () => zero(VECTOR3_KEYS),
+	one: () => one(VECTOR3_KEYS),
 	max: (...v: Vector3[]) => max(VECTOR3_KEYS, ...v),
 	min: (...v: Vector3[]) => min(VECTOR3_KEYS, ...v),
 	floor: (value: Vector3) => floor(VECTOR3_KEYS, value),
@@ -153,14 +162,20 @@ export const Vec3 = {
 // Vector2 — same treatment
 // ---------------------------------------------------------------------------
 
+function up2(a = 1): Vector2 { return { x: 0, y: a }; }
+function down2(a = 1): Vector2 { return { x: 0, y: -a }; }
+function cross2(a: Vector2, b: Vector2): number { return a.x * b.y - a.y * b.x; }
+
 export const Vec2 = {
 	create: (values: Vector2) => create(VECTOR2_KEYS, values),
 	equal: (...v: Vector2[]) => equal(VECTOR2_KEYS, ...v),
 	add: (...v: Vector2[]) => add(VECTOR2_KEYS, ...v),
-	sub: (a: Vector2, b: Vector2) => subtract(VECTOR2_KEYS, a, b),
-	mul: (...v: Vector2[]) => multiply(VECTOR2_KEYS, ...v),
-	div: (a: Vector2, b: Vector2) => divide(VECTOR2_KEYS, a, b),
+	subtract: (a: Vector2, b: Vector2) => subtract(VECTOR2_KEYS, a, b),
+	multiply: (...v: Vector2[]) => multiply(VECTOR2_KEYS, ...v),
+	divide: (a: Vector2, b: Vector2) => divide(VECTOR2_KEYS, a, b),
 	scale: (value: Vector2, scalar: number) => scale(VECTOR2_KEYS, value, scalar),
+	zero: () => zero(VECTOR2_KEYS),
+	one: () => one(VECTOR2_KEYS),
 	max: (...v: Vector2[]) => max(VECTOR2_KEYS, ...v),
 	min: (...v: Vector2[]) => min(VECTOR2_KEYS, ...v),
 	floor: (value: Vector2) => floor(VECTOR2_KEYS, value),
@@ -177,20 +192,27 @@ export const Vec2 = {
 	lerp: (a: Vector2, b: Vector2, t: number) => lerp(VECTOR2_KEYS, a, b, t),
 	in: (value: Vector2, from: Vector2, to: Vector2) => inRange(VECTOR2_KEYS, value, from, to),
 	is: (value: unknown): value is Vector2 => isVectorType(VECTOR2_KEYS, value),
+	up: up2,
+	down: down2,
+	cross: cross2,
 } as const;
 
 // ---------------------------------------------------------------------------
 // VectorXZ — same treatment
 // ---------------------------------------------------------------------------
 
+function crossXZ(a: VectorXZ, b: VectorXZ): number { return a.x * b.z - a.z * b.x; }
+
 export const VecXZ = {
 	create: (values: VectorXZ) => create(VECTORXZ_KEYS, values),
 	equal: (...v: VectorXZ[]) => equal(VECTORXZ_KEYS, ...v),
 	add: (...v: VectorXZ[]) => add(VECTORXZ_KEYS, ...v),
-	sub: (a: VectorXZ, b: VectorXZ) => subtract(VECTORXZ_KEYS, a, b),
-	mul: (...v: VectorXZ[]) => multiply(VECTORXZ_KEYS, ...v),
-	div: (a: VectorXZ, b: VectorXZ) => divide(VECTORXZ_KEYS, a, b),
+	subtract: (a: VectorXZ, b: VectorXZ) => subtract(VECTORXZ_KEYS, a, b),
+	multiply: (...v: VectorXZ[]) => multiply(VECTORXZ_KEYS, ...v),
+	divide: (a: VectorXZ, b: VectorXZ) => divide(VECTORXZ_KEYS, a, b),
 	scale: (value: VectorXZ, scalar: number) => scale(VECTORXZ_KEYS, value, scalar),
+	zero: () => zero(VECTORXZ_KEYS),
+	one: () => one(VECTORXZ_KEYS),
 	max: (...v: VectorXZ[]) => max(VECTORXZ_KEYS, ...v),
 	min: (...v: VectorXZ[]) => min(VECTORXZ_KEYS, ...v),
 	floor: (value: VectorXZ) => floor(VECTORXZ_KEYS, value),
@@ -207,4 +229,5 @@ export const VecXZ = {
 	lerp: (a: VectorXZ, b: VectorXZ, t: number) => lerp(VECTORXZ_KEYS, a, b, t),
 	in: (value: VectorXZ, from: VectorXZ, to: VectorXZ) => inRange(VECTORXZ_KEYS, value, from, to),
 	is: (value: unknown): value is VectorXZ => isVectorType(VECTORXZ_KEYS, value),
+	cross: crossXZ,
 } as const;

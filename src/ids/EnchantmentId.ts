@@ -34,7 +34,7 @@ export enum EnchantmentEnum {
   Punch = "minecraft:punch",
   QuickCharge = "minecraft:quick_charge",
 
-  // --- 三叉槍系 ---
+  // --- トライデント系 ---
   Channeling = "minecraft:channeling",
   Impaling = "minecraft:impaling",
   Loyalty = "minecraft:loyalty",

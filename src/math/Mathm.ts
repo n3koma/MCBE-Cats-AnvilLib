@@ -1,3 +1,26 @@
+export function clamp(value: number, min: number, max: number): number {
+	return Math.max(min, Math.min(max, value));
+}
+
+export function clamp01(value: number): number {
+	return clamp(value, 0, 1);
+}
+
+export function lerp(a: number, b: number, t: number): number {
+	return a + (b - a) * clamp01(t);
+}
+
+export function randomInt(min: number, max: number): number {
+	if (min > max) throw new Error(`min must be <= max, but got min=${min}, max=${max}`);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function randomPick<T>(array: T[]): T | undefined {
+	if (array.length === 0) return undefined;
+	const index = Math.floor(Math.random() * array.length);
+	return array[index];
+}
+
 interface WeightedItem<T> {
 	item: T;
 	weight: number;
@@ -24,14 +47,4 @@ export class WeightedArray<T> {
 		}
 		return this.items[this.items.length - 1].item;
 	}
-}
-
-export function ceilMultiple(value: number, multiple: number): number {
-	return multiple * (Math.floor(value / multiple) + 1);
-}
-
-export function randomPick<T>(array: T[]): T | undefined {
-	if (array.length === 0) return undefined;
-	const index = Math.floor(Math.random() * array.length);
-	return array[index];
 }
