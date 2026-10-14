@@ -1,0 +1,24 @@
+{
+  "name": "cmlib",
+  "version": "1.15.2",
+  "description": "Minecraft Bedrock Script API (@minecraft/server) 向けの個人用ユーティリティライブラリ",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc",
+    "build:watch": "tsc --watch",
+    "pack": "npm run build && npm pack"
+  },
+  "peerDependencies": {
+    "@minecraft/server": "*"
+  },
+  "devDependencies": {
+    "@minecraft/server": "2.10.0-beta.1.26.44-stable",
+    "typescript": "^5.5.4"
+  }
+}
