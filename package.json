@@ -1,6 +1,6 @@
 {
   "name": "cats-anvillib",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "description": "Minecraft Bedrock Script API (@minecraft/server) 向けの個人用ユーティリティライブラリ",
   "private": false,
   "main": "dist/index.js",
