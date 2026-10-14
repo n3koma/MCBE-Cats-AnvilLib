@@ -1,4 +1,4 @@
-import { Player } from "@minecraft/server";
+import type { Player } from "@minecraft/server";
 type HandlerFn<T> = (event: T) => void;
 export declare class EventBus<T extends object> {
     private handlers;

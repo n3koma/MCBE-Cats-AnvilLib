@@ -1,4 +1,4 @@
-import { Entity, ItemStack, Vector3 } from "@minecraft/server";
+import type { Entity, ItemStack, Vector3 } from "@minecraft/server";
 export type DynamicPropertyValue = ReturnType<typeof ItemStack.prototype.getDynamicProperty> | ReturnType<typeof Entity.prototype.getDynamicProperty>;
 export declare class DynamicPropertyReader {
     private readonly value;

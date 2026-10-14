@@ -66,13 +66,13 @@ export var MoonPhase;
 /** 月齢の日本語名 */
 export const MOON_PHASE_NAMES = {
     [MoonPhase.FullMoon]: "満月",
-    [MoonPhase.WaningGibbous]: "十六夜〜下弦前（欠けていく月）",
+    [MoonPhase.WaningGibbous]: "十六夜",
     [MoonPhase.LastQuarter]: "下弦の月",
-    [MoonPhase.WaningCrescent]: "有明の月（新月に近い細い月）",
+    [MoonPhase.WaningCrescent]: "有明の月",
     [MoonPhase.NewMoon]: "新月",
-    [MoonPhase.WaxingCrescent]: "三日月（満ちていく細い月）",
+    [MoonPhase.WaxingCrescent]: "三日月",
     [MoonPhase.FirstQuarter]: "上弦の月",
-    [MoonPhase.WaxingGibbous]: "十三夜〜満月前（満ちていく月）",
+    [MoonPhase.WaxingGibbous]: "十三夜",
 };
 /**
  * 経過日数から月齢を求める。
@@ -182,7 +182,7 @@ export function getTimeOfDayPeriod(tick) {
 export const TIME_OF_DAY_PERIOD_LABELS = {
     sunrise: "日の出",
     day: "昼",
-    sunset: "夕方（日没）",
+    sunset: "夕方",
     night: "夜",
 };
 // ============================================================
