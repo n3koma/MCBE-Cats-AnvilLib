@@ -25,7 +25,8 @@ export function getHitCylinderEntity(
   const result: Entity[] = [];
 
   for (const entity of candidates) {
-    const { min, max } = aabbToMinMax(entity.getAABB());
+		const aabb = entity.getAABB();
+    const { min, max } = aabbToMinMax(aabb);
 
     // AABB を軸方向に射影して [tMin, tMax] を求める
     const center = {
