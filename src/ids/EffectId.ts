@@ -1,76 +1,76 @@
-export enum EffectEnum {
+export const EffectEnum = {
 	/** 吸収 */
-	Absorption = "minecraft:absorption",
+	Absorption: "minecraft:absorption",
 	/** 不吉な予感 */
-	BadOmen = "minecraft:bad_omen",
+	BadOmen: "minecraft:bad_omen",
 	/** 盲目 */
-	Blindness = "minecraft:blindness",
+	Blindness: "minecraft:blindness",
 	/** オウムガイの息吹 */
-	BreathOfTheNautilus = "minecraft:breath_of_the_nautilus",
+	BreathOfTheNautilus: "minecraft:breath_of_the_nautilus",
 	/** コンジット・パワー */
-	ConduitPower = "minecraft:conduit_power",
+	ConduitPower: "minecraft:conduit_power",
 	/** 暗闇 */
-	Darkness = "minecraft:darkness",
+	Darkness: "minecraft:darkness",
 	/** 致死毒 */
-	FatalPoison = "minecraft:fatal_poison",
+	FatalPoison: "minecraft:fatal_poison",
 	/** 火炎耐性 */
-	FireResistance = "minecraft:fire_resistance",
+	FireResistance: "minecraft:fire_resistance",
 	/** 採掘速度上昇 */
-	Haste = "minecraft:haste",
+	Haste: "minecraft:haste",
 	/** 体力増強 */
-	HealthBoost = "minecraft:health_boost",
+	HealthBoost: "minecraft:health_boost",
 	/** 空腹 */
-	Hunger = "minecraft:hunger",
+	Hunger: "minecraft:hunger",
 	/** 虫食い */
-	Infested = "minecraft:infested",
+	Infested: "minecraft:infested",
 	/** 即時ダメージ */
-	InstantDamage = "minecraft:instant_damage",
+	InstantDamage: "minecraft:instant_damage",
 	/** 即時回復 */
-	InstantHealth = "minecraft:instant_health",
+	InstantHealth: "minecraft:instant_health",
 	/** 透明化 */
-	Invisibility = "minecraft:invisibility",
+	Invisibility: "minecraft:invisibility",
 	/** 跳躍力上昇 */
-	JumpBoost = "minecraft:jump_boost",
+	JumpBoost: "minecraft:jump_boost",
 	/** 浮遊 */
-	Levitation = "minecraft:levitation",
+	Levitation: "minecraft:levitation",
 	/** 採掘速度低下 */
-	MiningFatigue = "minecraft:mining_fatigue",
+	MiningFatigue: "minecraft:mining_fatigue",
 	/** 吐き気 */
-	Nausea = "minecraft:nausea",
+	Nausea: "minecraft:nausea",
 	/** 暗視 */
-	NightVision = "minecraft:night_vision",
+	NightVision: "minecraft:night_vision",
 	/** 滲出 */
-	Oozing = "minecraft:oozing",
+	Oozing: "minecraft:oozing",
 	/** 毒 */
-	Poison = "minecraft:poison",
+	Poison: "minecraft:poison",
 	/** 襲撃の予感 */
-	RaidOmen = "minecraft:raid_omen",
+	RaidOmen: "minecraft:raid_omen",
 	/** 再生能力 */
-	Regeneration = "minecraft:regeneration",
+	Regeneration: "minecraft:regeneration",
 	/** 耐性 */
-	Resistance = "minecraft:resistance",
+	Resistance: "minecraft:resistance",
 	/** 満腹度回復 */
-	Saturation = "minecraft:saturation",
+	Saturation: "minecraft:saturation",
 	/** 落下耐性 */
-	SlowFalling = "minecraft:slow_falling",
+	SlowFalling: "minecraft:slow_falling",
 	/** 移動速度低下 */
-	Slowness = "minecraft:slowness",
+	Slowness: "minecraft:slowness",
 	/** 移動速度上昇 */
-	Speed = "minecraft:speed",
+	Speed: "minecraft:speed",
 	/** 攻撃力上昇 */
-	Strength = "minecraft:strength",
+	Strength: "minecraft:strength",
 	/** 不吉な予感 */
-	TrialOmen = "minecraft:trial_omen",
+	TrialOmen: "minecraft:trial_omen",
 	/** 村の英雄 */
-	VillageHero = "minecraft:village_hero",
+	VillageHero: "minecraft:village_hero",
 	/** 水中呼吸 */
-	WaterBreathing = "minecraft:water_breathing",
+	WaterBreathing: "minecraft:water_breathing",
 	/** 弱体化 */
-	Weakness = "minecraft:weakness",
+	Weakness: "minecraft:weakness",
 	/** 巣張り */
-	Weaving = "minecraft:weaving",
+	Weaving: "minecraft:weaving",
 	/** 蓄風 */
-	WindCharged = "minecraft:wind_charged",
+	WindCharged: "minecraft:wind_charged",
 	/** ウィザー */
-	Wither = "minecraft:wither",
+	Wither: "minecraft:wither",
 }

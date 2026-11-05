@@ -1,180 +1,180 @@
-export enum BiomeEnum {
+export const BiomeEnum = {
 	/** 竹ジャングル */
-	BambooJungle = "minecraft:bamboo_jungle",
+	BambooJungle: "minecraft:bamboo_jungle",
 	/** 竹ジャングルの丘 */
-	BambooJungleHills = "minecraft:bamboo_jungle_hills",
+	BambooJungleHills: "minecraft:bamboo_jungle_hills",
 	/** 玄武岩の三角州 */
-	BasaltDeltas = "minecraft:basalt_deltas",
+	BasaltDeltas: "minecraft:basalt_deltas",
 	/** 浜辺 */
-	Beach = "minecraft:beach",
+	Beach: "minecraft:beach",
 	/** 白樺の森 */
-	BirchForest = "minecraft:birch_forest",
+	BirchForest: "minecraft:birch_forest",
 	/** 白樺の森の丘 */
-	BirchForestHills = "minecraft:birch_forest_hills",
+	BirchForestHills: "minecraft:birch_forest_hills",
 	/** 白樺の森の丘（変異種／Legacy） */
-	BirchForestHillsMutated = "minecraft:birch_forest_hills_mutated",
+	BirchForestHillsMutated: "minecraft:birch_forest_hills_mutated",
 	/** 白樺の森（変異種／Legacy） */
-	BirchForestMutated = "minecraft:birch_forest_mutated",
+	BirchForestMutated: "minecraft:birch_forest_mutated",
 	/** 桜の木立 */
-	CherryGrove = "minecraft:cherry_grove",
+	CherryGrove: "minecraft:cherry_grove",
 	/** 寒冷な浜辺（Legacy） */
-	ColdBeach = "minecraft:cold_beach",
+	ColdBeach: "minecraft:cold_beach",
 	/** 寒い海 */
-	ColdOcean = "minecraft:cold_ocean",
+	ColdOcean: "minecraft:cold_ocean",
 	/** 寒いタイガ */
-	ColdTaiga = "minecraft:cold_taiga",
+	ColdTaiga: "minecraft:cold_taiga",
 	/** 寒いタイガの丘 */
-	ColdTaigaHills = "minecraft:cold_taiga_hills",
+	ColdTaigaHills: "minecraft:cold_taiga_hills",
 	/** 寒いタイガ（変異種／Legacy） */
-	ColdTaigaMutated = "minecraft:cold_taiga_mutated",
+	ColdTaigaMutated: "minecraft:cold_taiga_mutated",
 	/** 深紅の森（ネザー） */
-	CrimsonForest = "minecraft:crimson_forest",
+	CrimsonForest: "minecraft:crimson_forest",
 	/** まだらの森 */
-	DappledForest = "minecraft:dappled_forest",
+	DappledForest: "minecraft:dappled_forest",
 	/** 深い寒い海 */
-	DeepColdOcean = "minecraft:deep_cold_ocean",
+	DeepColdOcean: "minecraft:deep_cold_ocean",
 	/** 暗闇の奥地（ディープダーク） */
-	DeepDark = "minecraft:deep_dark",
+	DeepDark: "minecraft:deep_dark",
 	/** 深い氷結した海 */
-	DeepFrozenOcean = "minecraft:deep_frozen_ocean",
+	DeepFrozenOcean: "minecraft:deep_frozen_ocean",
 	/** 深いぬるい海 */
-	DeepLukewarmOcean = "minecraft:deep_lukewarm_ocean",
+	DeepLukewarmOcean: "minecraft:deep_lukewarm_ocean",
 	/** 深い海 */
-	DeepOcean = "minecraft:deep_ocean",
+	DeepOcean: "minecraft:deep_ocean",
 	/** 深い暖かい海 */
-	DeepWarmOcean = "minecraft:deep_warm_ocean",
+	DeepWarmOcean: "minecraft:deep_warm_ocean",
 	/** 砂漠 */
-	Desert = "minecraft:desert",
+	Desert: "minecraft:desert",
 	/** 砂漠の丘 */
-	DesertHills = "minecraft:desert_hills",
+	DesertHills: "minecraft:desert_hills",
 	/** 砂漠（変異種／Legacy） */
-	DesertMutated = "minecraft:desert_mutated",
+	DesertMutated: "minecraft:desert_mutated",
 	/** 鍾乳洞 */
-	DripstoneCaves = "minecraft:dripstone_caves",
+	DripstoneCaves: "minecraft:dripstone_caves",
 	/** 山地（Extreme Hills／Legacy） */
-	ExtremeHills = "minecraft:extreme_hills",
+	ExtremeHills: "minecraft:extreme_hills",
 	/** 山地の端（Legacy） */
-	ExtremeHillsEdge = "minecraft:extreme_hills_edge",
+	ExtremeHillsEdge: "minecraft:extreme_hills_edge",
 	/** 山地（変異種／Legacy） */
-	ExtremeHillsMutated = "minecraft:extreme_hills_mutated",
+	ExtremeHillsMutated: "minecraft:extreme_hills_mutated",
 	/** 木々に覆われた山地（Legacy） */
-	ExtremeHillsPlusTrees = "minecraft:extreme_hills_plus_trees",
+	ExtremeHillsPlusTrees: "minecraft:extreme_hills_plus_trees",
 	/** 木々に覆われた山地（変異種／Legacy） */
-	ExtremeHillsPlusTreesMutated = "minecraft:extreme_hills_plus_trees_mutated",
+	ExtremeHillsPlusTreesMutated: "minecraft:extreme_hills_plus_trees_mutated",
 	/** 花の森 */
-	FlowerForest = "minecraft:flower_forest",
+	FlowerForest: "minecraft:flower_forest",
 	/** 森 */
-	Forest = "minecraft:forest",
+	Forest: "minecraft:forest",
 	/** 森の丘 */
-	ForestHills = "minecraft:forest_hills",
+	ForestHills: "minecraft:forest_hills",
 	/** 氷の海 */
-	FrozenOcean = "minecraft:frozen_ocean",
+	FrozenOcean: "minecraft:frozen_ocean",
 	/** 氷の山頂 */
-	FrozenPeaks = "minecraft:frozen_peaks",
+	FrozenPeaks: "minecraft:frozen_peaks",
 	/** 氷の川 */
-	FrozenRiver = "minecraft:frozen_river",
+	FrozenRiver: "minecraft:frozen_river",
 	/** 木立（グローブ） */
-	Grove = "minecraft:grove",
+	Grove: "minecraft:grove",
 	/** ネザー（Legacy ID） */
-	Hell = "minecraft:hell",
+	Hell: "minecraft:hell",
 	/** 氷の山（Legacy） */
-	IceMountains = "minecraft:ice_mountains",
+	IceMountains: "minecraft:ice_mountains",
 	/** 氷原（Legacy） */
-	IcePlains = "minecraft:ice_plains",
+	IcePlains: "minecraft:ice_plains",
 	/** 氷の尖った平原（Legacy） */
-	IcePlainsSpikes = "minecraft:ice_plains_spikes",
+	IcePlainsSpikes: "minecraft:ice_plains_spikes",
 	/** ギザギザの山頂 */
-	JaggedPeaks = "minecraft:jagged_peaks",
+	JaggedPeaks: "minecraft:jagged_peaks",
 	/** ジャングル */
-	Jungle = "minecraft:jungle",
+	Jungle: "minecraft:jungle",
 	/** ジャングルの端 */
-	JungleEdge = "minecraft:jungle_edge",
+	JungleEdge: "minecraft:jungle_edge",
 	/** ジャングルの端（変異種／Legacy） */
-	JungleEdgeMutated = "minecraft:jungle_edge_mutated",
+	JungleEdgeMutated: "minecraft:jungle_edge_mutated",
 	/** ジャングルの丘 */
-	JungleHills = "minecraft:jungle_hills",
+	JungleHills: "minecraft:jungle_hills",
 	/** ジャングル（変異種／Legacy） */
-	JungleMutated = "minecraft:jungle_mutated",
+	JungleMutated: "minecraft:jungle_mutated",
 	/** 氷結した海（旧世代／Legacy） */
-	LegacyFrozenOcean = "minecraft:legacy_frozen_ocean",
+	LegacyFrozenOcean: "minecraft:legacy_frozen_ocean",
 	/** ぬるい海 */
-	LukewarmOcean = "minecraft:lukewarm_ocean",
+	LukewarmOcean: "minecraft:lukewarm_ocean",
 	/** 鬱蒼とした洞窟 */
-	LushCaves = "minecraft:lush_caves",
+	LushCaves: "minecraft:lush_caves",
 	/** マングローブの沼地 */
-	MangroveSwamp = "minecraft:mangrove_swamp",
+	MangroveSwamp: "minecraft:mangrove_swamp",
 	/** 草原（メドウ） */
-	Meadow = "minecraft:meadow",
+	Meadow: "minecraft:meadow",
 	/** 巨大な針葉樹の森 */
-	MegaTaiga = "minecraft:mega_taiga",
+	MegaTaiga: "minecraft:mega_taiga",
 	/** 巨大な針葉樹の森の丘 */
-	MegaTaigaHills = "minecraft:mega_taiga_hills",
+	MegaTaigaHills: "minecraft:mega_taiga_hills",
 	/** メサ */
-	Mesa = "minecraft:mesa",
+	Mesa: "minecraft:mesa",
 	/** メサ（ブライス） */
-	MesaBryce = "minecraft:mesa_bryce",
+	MesaBryce: "minecraft:mesa_bryce",
 	/** メサの台地 */
-	MesaPlateau = "minecraft:mesa_plateau",
+	MesaPlateau: "minecraft:mesa_plateau",
 	/** メサの台地（変異種／Legacy） */
-	MesaPlateauMutated = "minecraft:mesa_plateau_mutated",
+	MesaPlateauMutated: "minecraft:mesa_plateau_mutated",
 	/** メサの台地（石） */
-	MesaPlateauStone = "minecraft:mesa_plateau_stone",
+	MesaPlateauStone: "minecraft:mesa_plateau_stone",
 	/** メサの台地（石・変異種／Legacy） */
-	MesaPlateauStoneMutated = "minecraft:mesa_plateau_stone_mutated",
+	MesaPlateauStoneMutated: "minecraft:mesa_plateau_stone_mutated",
 	/** キノコ島 */
-	MushroomIsland = "minecraft:mushroom_island",
+	MushroomIsland: "minecraft:mushroom_island",
 	/** キノコ島の浜辺 */
-	MushroomIslandShore = "minecraft:mushroom_island_shore",
+	MushroomIslandShore: "minecraft:mushroom_island_shore",
 	/** 海 */
-	Ocean = "minecraft:ocean",
+	Ocean: "minecraft:ocean",
 	/** 青白い庭園（ペイルガーデン） */
-	PaleGarden = "minecraft:pale_garden",
+	PaleGarden: "minecraft:pale_garden",
 	/** 平原 */
-	Plains = "minecraft:plains",
+	Plains: "minecraft:plains",
 	/** レッドウッドタイガの丘（変異種／Legacy） */
-	RedwoodTaigaHillsMutated = "minecraft:redwood_taiga_hills_mutated",
+	RedwoodTaigaHillsMutated: "minecraft:redwood_taiga_hills_mutated",
 	/** レッドウッドタイガ（変異種／Legacy） */
-	RedwoodTaigaMutated = "minecraft:redwood_taiga_mutated",
+	RedwoodTaigaMutated: "minecraft:redwood_taiga_mutated",
 	/** 川 */
-	River = "minecraft:river",
+	River: "minecraft:river",
 	/** 屋根に覆われた森（Legacy） */
-	RoofedForest = "minecraft:roofed_forest",
+	RoofedForest: "minecraft:roofed_forest",
 	/** 屋根に覆われた森（変異種／Legacy） */
-	RoofedForestMutated = "minecraft:roofed_forest_mutated",
+	RoofedForestMutated: "minecraft:roofed_forest_mutated",
 	/** サバンナ */
-	Savanna = "minecraft:savanna",
+	Savanna: "minecraft:savanna",
 	/** サバンナ（変異種／Legacy） */
-	SavannaMutated = "minecraft:savanna_mutated",
+	SavannaMutated: "minecraft:savanna_mutated",
 	/** サバンナ台地 */
-	SavannaPlateau = "minecraft:savanna_plateau",
+	SavannaPlateau: "minecraft:savanna_plateau",
 	/** サバンナ台地（変異種／Legacy） */
-	SavannaPlateauMutated = "minecraft:savanna_plateau_mutated",
+	SavannaPlateauMutated: "minecraft:savanna_plateau_mutated",
 	/** 雪深い斜面 */
-	SnowySlopes = "minecraft:snowy_slopes",
+	SnowySlopes: "minecraft:snowy_slopes",
 	/** ソウルサンドの谷 */
-	SoulsandValley = "minecraft:soulsand_valley",
+	SoulsandValley: "minecraft:soulsand_valley",
 	/** 石の浜辺 */
-	StoneBeach = "minecraft:stone_beach",
+	StoneBeach: "minecraft:stone_beach",
 	/** 石の山頂 */
-	StonyPeaks = "minecraft:stony_peaks",
+	StonyPeaks: "minecraft:stony_peaks",
 	/** 硫黄の洞窟 */
-	SulfurCaves = "minecraft:sulfur_caves",
+	SulfurCaves: "minecraft:sulfur_caves",
 	/** ひまわり平原 */
-	SunflowerPlains = "minecraft:sunflower_plains",
+	SunflowerPlains: "minecraft:sunflower_plains",
 	/** 沼地（Legacy ID） */
-	Swampland = "minecraft:swampland",
+	Swampland: "minecraft:swampland",
 	/** 沼地（変異種／Legacy） */
-	SwamplandMutated = "minecraft:swampland_mutated",
+	SwamplandMutated: "minecraft:swampland_mutated",
 	/** タイガ */
-	Taiga = "minecraft:taiga",
+	Taiga: "minecraft:taiga",
 	/** タイガの丘 */
-	TaigaHills = "minecraft:taiga_hills",
+	TaigaHills: "minecraft:taiga_hills",
 	/** タイガ（変異種／Legacy） */
-	TaigaMutated = "minecraft:taiga_mutated",
+	TaigaMutated: "minecraft:taiga_mutated",
 	/** ジ・エンド */
-	TheEnd = "minecraft:the_end",
+	TheEnd: "minecraft:the_end",
 	/** 暖かい海 */
-	WarmOcean = "minecraft:warm_ocean",
+	WarmOcean: "minecraft:warm_ocean",
 	/** 歪んだ森（ネザー） */
-	WarpedForest = "minecraft:warped_forest",
-}
+	WarpedForest: "minecraft:warped_forest",
+} as const;

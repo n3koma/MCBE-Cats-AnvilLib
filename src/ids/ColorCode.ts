@@ -1,48 +1,48 @@
 import { RGBA } from "@minecraft/server";
 
-export enum ColorCode {
+export const ColorCode = {
 	// ── 色 ────────────────────────────────────
-	Black = "§0",
-	DarkBlue = "§1",
-	DarkGreen = "§2",
-	DarkAqua = "§3",
-	DarkRed = "§4",
-	DarkPurple = "§5",
-	Golden = "§6",
-	Gray = "§7",
-	Grey = Gray, // UK English
-	DarkGray = "§8",
-	DarkGrey = DarkGray, // UK English
-	Blue = "§9",
+	Black: "§0",
+	DarkBlue: "§1",
+	DarkGreen: "§2",
+	DarkAqua: "§3",
+	DarkRed: "§4",
+	DarkPurple: "§5",
+	Golden: "§6",
+	Gray: "§7",
+	Grey: "§7", // UK English
+	DarkGray: "§8",
+	DarkGrey: "§8", // UK English
+	Blue: "§9",
 
-	Green = "§a",
-	Aqua = "§b",
-	Red = "§c",
-	LightPurple = "§d",
-	Yellow = "§e",
-	White = "§f",
-	LightBlue = "§w",
+	Green: "§a",
+	Aqua: "§b",
+	Red: "§c",
+	LightPurple: "§d",
+	Yellow: "§e",
+	White: "§f",
+	LightBlue: "§w",
 
-	MinecoinGold = "§g",
+	MinecoinGold: "§g",
 
-	Resin = "§v",
-	Amethyst = "§u",
-	Quartz = "§h",
-	Copper = "§n",
-	Iron = "§i",
-	Lapis = "§t",
-	Redstone = "§m",
-	Gold = "§p",
-	Diamond = "§s",
-	Emerald = "§q",
-	Netherite = "§j",
+	Resin: "§v",
+	Amethyst: "§u",
+	Quartz: "§h",
+	Copper: "§n",
+	Iron: "§i",
+	Lapis: "§t",
+	Redstone: "§m",
+	Gold: "§p",
+	Diamond: "§s",
+	Emerald: "§q",
+	Netherite: "§j",
 
 	// ── 装飾コード ────────────────────────────────────
-	Reset = "§r",
-	Bold = "§l",
-	Italic = "§o",
-	Obfuscated = "§k",
-}
+	Reset: "§r",
+	Bold: "§l",
+	Italic: "§o",
+	Obfuscated: "§k",
+} as const;
 
 export interface Color {
 	r: number;
@@ -52,16 +52,16 @@ export interface Color {
 }
 
 export const Color: Record<string, RGBA> = {
-	Black:  toRGBA({ r: 0,   g: 0,   b: 0,   a: 1 }),
-	White:  toRGBA({ r: 255, g: 255, b: 255, a: 1 }),
-	Red:    toRGBA({ r: 255, g: 0,   b: 0,   a: 1 }),
-	Green:  toRGBA({ r: 0,   g: 255, b: 0,   a: 1 }),
-	Blue:   toRGBA({ r: 0,   g: 0,   b: 255, a: 1 }),
-	Yellow: toRGBA({ r: 255, g: 255, b: 0,   a: 1 }),
-	Aqua:   toRGBA({ r: 0,   g: 255, b: 255, a: 1 }),
-	Purple: toRGBA({ r: 170, g: 0,   b: 255, a: 1 }),
-	Gold:   toRGBA({ r: 255, g: 170, b: 0,   a: 1 }),
-	Gray:   toRGBA({ r: 128, g: 128, b: 128, a: 1 }),
+	Black:  /* @__PURE__ */ toRGBA({ r: 0,   g: 0,   b: 0,   a: 1 }),
+	White:  /* @__PURE__ */ toRGBA({ r: 255, g: 255, b: 255, a: 1 }),
+	Red:    /* @__PURE__ */ toRGBA({ r: 255, g: 0,   b: 0,   a: 1 }),
+	Green:  /* @__PURE__ */ toRGBA({ r: 0,   g: 255, b: 0,   a: 1 }),
+	Blue:   /* @__PURE__ */ toRGBA({ r: 0,   g: 0,   b: 255, a: 1 }),
+	Yellow: /* @__PURE__ */ toRGBA({ r: 255, g: 255, b: 0,   a: 1 }),
+	Aqua:   /* @__PURE__ */ toRGBA({ r: 0,   g: 255, b: 255, a: 1 }),
+	Purple: /* @__PURE__ */ toRGBA({ r: 170, g: 0,   b: 255, a: 1 }),
+	Gold:   /* @__PURE__ */ toRGBA({ r: 255, g: 170, b: 0,   a: 1 }),
+	Gray:   /* @__PURE__ */ toRGBA({ r: 128, g: 128, b: 128, a: 1 }),
 } as const;
 
 export type ColorCodeName = keyof typeof ColorCode;

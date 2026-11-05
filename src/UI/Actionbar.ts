@@ -12,6 +12,18 @@ const buffers = new Map<string, Map<string, Segment>>(); // playerId -> (segment
 
 const DEFAULT_DURATION = 20;
 
+let timer: number | undefined;
+
+function ensureRunning() {
+	if (timer !== undefined) return;
+	timer = system.runInterval(() => {
+		for (const [playerId, _] of buffers) {
+			const player = world.getEntity(playerId);
+			if (player instanceof Player) flushActionbar(player);
+		}
+	}, 20);
+}
+
 export function setActionbar(
 	player: Player,
 	id: string,
@@ -31,6 +43,8 @@ export function setActionbar(
 		separator,
 		priority,
 	});
+
+	ensureRunning();
 	buffers.set(player.id, segments);
 }
 
@@ -61,12 +75,6 @@ export function flushActionbar(player: Player): void {
 		.map((seg, i) => (i === sorted.length - 1 ? seg.text : seg.text + seg.separator))
 		.join("");
 
+	ensureRunning();
 	player.onScreenDisplay.setActionBar(message);
 }
-
-system.runInterval(() => {
-	for (const [playerId, _] of buffers) {
-		const player = world.getEntity(playerId);
-		if (player instanceof Player) flushActionbar(player);
-	}
-}, 20);
