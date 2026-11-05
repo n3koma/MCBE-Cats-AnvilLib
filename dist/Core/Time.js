@@ -52,17 +52,16 @@ export const MONSTER_SPAWN_TICK_END = TIME_SUNRISE; // 23000
 // 月齢
 // ============================================================
 /** Minecraft の月齢（8段階ループ）。0 が満月。 */
-export var MoonPhase;
-(function (MoonPhase) {
-    MoonPhase[MoonPhase["FullMoon"] = 0] = "FullMoon";
-    MoonPhase[MoonPhase["WaningGibbous"] = 1] = "WaningGibbous";
-    MoonPhase[MoonPhase["LastQuarter"] = 2] = "LastQuarter";
-    MoonPhase[MoonPhase["WaningCrescent"] = 3] = "WaningCrescent";
-    MoonPhase[MoonPhase["NewMoon"] = 4] = "NewMoon";
-    MoonPhase[MoonPhase["WaxingCrescent"] = 5] = "WaxingCrescent";
-    MoonPhase[MoonPhase["FirstQuarter"] = 6] = "FirstQuarter";
-    MoonPhase[MoonPhase["WaxingGibbous"] = 7] = "WaxingGibbous";
-})(MoonPhase || (MoonPhase = {}));
+export const MoonPhase = {
+    FullMoon: 0,
+    WaningGibbous: 1,
+    LastQuarter: 2,
+    WaningCrescent: 3,
+    NewMoon: 4,
+    WaxingCrescent: 5,
+    FirstQuarter: 6,
+    WaxingGibbous: 7,
+};
 /** 月齢の日本語名 */
 export const MOON_PHASE_NAMES = {
     [MoonPhase.FullMoon]: "満月",

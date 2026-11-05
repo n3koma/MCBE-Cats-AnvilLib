@@ -1,5 +1,5 @@
-export declare enum DimensionEnum {
-    Overworld = "minecraft:overworld",
-    Nether = "minecraft:nether",
-    TheEnd = "minecraft:the_end"
-}
+export declare const DimensionEnum: {
+    Overworld: string;
+    Nether: string;
+    TheEnd: string;
+};

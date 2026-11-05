@@ -1,77 +1,76 @@
-export var EffectEnum;
-(function (EffectEnum) {
+export const EffectEnum = {
     /** 吸収 */
-    EffectEnum["Absorption"] = "minecraft:absorption";
+    Absorption: "minecraft:absorption",
     /** 不吉な予感 */
-    EffectEnum["BadOmen"] = "minecraft:bad_omen";
+    BadOmen: "minecraft:bad_omen",
     /** 盲目 */
-    EffectEnum["Blindness"] = "minecraft:blindness";
+    Blindness: "minecraft:blindness",
     /** オウムガイの息吹 */
-    EffectEnum["BreathOfTheNautilus"] = "minecraft:breath_of_the_nautilus";
+    BreathOfTheNautilus: "minecraft:breath_of_the_nautilus",
     /** コンジット・パワー */
-    EffectEnum["ConduitPower"] = "minecraft:conduit_power";
+    ConduitPower: "minecraft:conduit_power",
     /** 暗闇 */
-    EffectEnum["Darkness"] = "minecraft:darkness";
+    Darkness: "minecraft:darkness",
     /** 致死毒 */
-    EffectEnum["FatalPoison"] = "minecraft:fatal_poison";
+    FatalPoison: "minecraft:fatal_poison",
     /** 火炎耐性 */
-    EffectEnum["FireResistance"] = "minecraft:fire_resistance";
+    FireResistance: "minecraft:fire_resistance",
     /** 採掘速度上昇 */
-    EffectEnum["Haste"] = "minecraft:haste";
+    Haste: "minecraft:haste",
     /** 体力増強 */
-    EffectEnum["HealthBoost"] = "minecraft:health_boost";
+    HealthBoost: "minecraft:health_boost",
     /** 空腹 */
-    EffectEnum["Hunger"] = "minecraft:hunger";
+    Hunger: "minecraft:hunger",
     /** 虫食い */
-    EffectEnum["Infested"] = "minecraft:infested";
+    Infested: "minecraft:infested",
     /** 即時ダメージ */
-    EffectEnum["InstantDamage"] = "minecraft:instant_damage";
+    InstantDamage: "minecraft:instant_damage",
     /** 即時回復 */
-    EffectEnum["InstantHealth"] = "minecraft:instant_health";
+    InstantHealth: "minecraft:instant_health",
     /** 透明化 */
-    EffectEnum["Invisibility"] = "minecraft:invisibility";
+    Invisibility: "minecraft:invisibility",
     /** 跳躍力上昇 */
-    EffectEnum["JumpBoost"] = "minecraft:jump_boost";
+    JumpBoost: "minecraft:jump_boost",
     /** 浮遊 */
-    EffectEnum["Levitation"] = "minecraft:levitation";
+    Levitation: "minecraft:levitation",
     /** 採掘速度低下 */
-    EffectEnum["MiningFatigue"] = "minecraft:mining_fatigue";
+    MiningFatigue: "minecraft:mining_fatigue",
     /** 吐き気 */
-    EffectEnum["Nausea"] = "minecraft:nausea";
+    Nausea: "minecraft:nausea",
     /** 暗視 */
-    EffectEnum["NightVision"] = "minecraft:night_vision";
+    NightVision: "minecraft:night_vision",
     /** 滲出 */
-    EffectEnum["Oozing"] = "minecraft:oozing";
+    Oozing: "minecraft:oozing",
     /** 毒 */
-    EffectEnum["Poison"] = "minecraft:poison";
+    Poison: "minecraft:poison",
     /** 襲撃の予感 */
-    EffectEnum["RaidOmen"] = "minecraft:raid_omen";
+    RaidOmen: "minecraft:raid_omen",
     /** 再生能力 */
-    EffectEnum["Regeneration"] = "minecraft:regeneration";
+    Regeneration: "minecraft:regeneration",
     /** 耐性 */
-    EffectEnum["Resistance"] = "minecraft:resistance";
+    Resistance: "minecraft:resistance",
     /** 満腹度回復 */
-    EffectEnum["Saturation"] = "minecraft:saturation";
+    Saturation: "minecraft:saturation",
     /** 落下耐性 */
-    EffectEnum["SlowFalling"] = "minecraft:slow_falling";
+    SlowFalling: "minecraft:slow_falling",
     /** 移動速度低下 */
-    EffectEnum["Slowness"] = "minecraft:slowness";
+    Slowness: "minecraft:slowness",
     /** 移動速度上昇 */
-    EffectEnum["Speed"] = "minecraft:speed";
+    Speed: "minecraft:speed",
     /** 攻撃力上昇 */
-    EffectEnum["Strength"] = "minecraft:strength";
+    Strength: "minecraft:strength",
     /** 不吉な予感 */
-    EffectEnum["TrialOmen"] = "minecraft:trial_omen";
+    TrialOmen: "minecraft:trial_omen",
     /** 村の英雄 */
-    EffectEnum["VillageHero"] = "minecraft:village_hero";
+    VillageHero: "minecraft:village_hero",
     /** 水中呼吸 */
-    EffectEnum["WaterBreathing"] = "minecraft:water_breathing";
+    WaterBreathing: "minecraft:water_breathing",
     /** 弱体化 */
-    EffectEnum["Weakness"] = "minecraft:weakness";
+    Weakness: "minecraft:weakness",
     /** 巣張り */
-    EffectEnum["Weaving"] = "minecraft:weaving";
+    Weaving: "minecraft:weaving",
     /** 蓄風 */
-    EffectEnum["WindCharged"] = "minecraft:wind_charged";
+    WindCharged: "minecraft:wind_charged",
     /** ウィザー */
-    EffectEnum["Wither"] = "minecraft:wither";
-})(EffectEnum || (EffectEnum = {}));
+    Wither: "minecraft:wither",
+};

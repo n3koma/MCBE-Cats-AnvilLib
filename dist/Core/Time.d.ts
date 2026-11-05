@@ -54,16 +54,17 @@ export declare const TIME_MIDNIGHT: 18000;
 export declare const MONSTER_SPAWN_TICK_START: 13000;
 export declare const MONSTER_SPAWN_TICK_END: 23000;
 /** Minecraft の月齢（8段階ループ）。0 が満月。 */
-export declare enum MoonPhase {
-    FullMoon = 0,
-    WaningGibbous = 1,
-    LastQuarter = 2,
-    WaningCrescent = 3,
-    NewMoon = 4,
-    WaxingCrescent = 5,
-    FirstQuarter = 6,
-    WaxingGibbous = 7
-}
+export declare const MoonPhase: {
+    readonly FullMoon: 0;
+    readonly WaningGibbous: 1;
+    readonly LastQuarter: 2;
+    readonly WaningCrescent: 3;
+    readonly NewMoon: 4;
+    readonly WaxingCrescent: 5;
+    readonly FirstQuarter: 6;
+    readonly WaxingGibbous: 7;
+};
+export type MoonPhase = (typeof MoonPhase)[keyof typeof MoonPhase];
 /** 月齢の日本語名 */
 export declare const MOON_PHASE_NAMES: Record<MoonPhase, string>;
 /**

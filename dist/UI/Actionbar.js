@@ -2,6 +2,18 @@
 import { Player, system, world } from "@minecraft/server";
 const buffers = new Map(); // playerId -> (segmentId -> Segment)
 const DEFAULT_DURATION = 20;
+let timer;
+function ensureRunning() {
+    if (timer !== undefined)
+        return;
+    timer = system.runInterval(() => {
+        for (const [playerId, _] of buffers) {
+            const player = world.getEntity(playerId);
+            if (player instanceof Player)
+                flushActionbar(player);
+        }
+    }, 20);
+}
 export function setActionbar(player, id, text, options = {}) {
     const { duration = DEFAULT_DURATION, separator = " | ", priority = 0, } = options;
     const segments = buffers.get(player.id) ?? new Map();
@@ -11,6 +23,7 @@ export function setActionbar(player, id, text, options = {}) {
         separator,
         priority,
     });
+    ensureRunning();
     buffers.set(player.id, segments);
 }
 export function clearActionbar(player, id) {
@@ -34,12 +47,6 @@ export function flushActionbar(player) {
     const message = sorted
         .map((seg, i) => (i === sorted.length - 1 ? seg.text : seg.text + seg.separator))
         .join("");
+    ensureRunning();
     player.onScreenDisplay.setActionBar(message);
 }
-system.runInterval(() => {
-    for (const [playerId, _] of buffers) {
-        const player = world.getEntity(playerId);
-        if (player instanceof Player)
-            flushActionbar(player);
-    }
-}, 20);

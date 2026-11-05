@@ -1,41 +1,41 @@
 import { RGBA } from "@minecraft/server";
-export declare enum ColorCode {
-    Black = "\u00A70",
-    DarkBlue = "\u00A71",
-    DarkGreen = "\u00A72",
-    DarkAqua = "\u00A73",
-    DarkRed = "\u00A74",
-    DarkPurple = "\u00A75",
-    Golden = "\u00A76",
-    Gray = "\u00A77",
-    Grey = "\u00A77",// UK English
-    DarkGray = "\u00A78",
-    DarkGrey = "\u00A78",// UK English
-    Blue = "\u00A79",
-    Green = "\u00A7a",
-    Aqua = "\u00A7b",
-    Red = "\u00A7c",
-    LightPurple = "\u00A7d",
-    Yellow = "\u00A7e",
-    White = "\u00A7f",
-    LightBlue = "\u00A7w",
-    MinecoinGold = "\u00A7g",
-    Resin = "\u00A7v",
-    Amethyst = "\u00A7u",
-    Quartz = "\u00A7h",
-    Copper = "\u00A7n",
-    Iron = "\u00A7i",
-    Lapis = "\u00A7t",
-    Redstone = "\u00A7m",
-    Gold = "\u00A7p",
-    Diamond = "\u00A7s",
-    Emerald = "\u00A7q",
-    Netherite = "\u00A7j",
-    Reset = "\u00A7r",
-    Bold = "\u00A7l",
-    Italic = "\u00A7o",
-    Obfuscated = "\u00A7k"
-}
+export declare const ColorCode: {
+    readonly Black: "§0";
+    readonly DarkBlue: "§1";
+    readonly DarkGreen: "§2";
+    readonly DarkAqua: "§3";
+    readonly DarkRed: "§4";
+    readonly DarkPurple: "§5";
+    readonly Golden: "§6";
+    readonly Gray: "§7";
+    readonly Grey: "§7";
+    readonly DarkGray: "§8";
+    readonly DarkGrey: "§8";
+    readonly Blue: "§9";
+    readonly Green: "§a";
+    readonly Aqua: "§b";
+    readonly Red: "§c";
+    readonly LightPurple: "§d";
+    readonly Yellow: "§e";
+    readonly White: "§f";
+    readonly LightBlue: "§w";
+    readonly MinecoinGold: "§g";
+    readonly Resin: "§v";
+    readonly Amethyst: "§u";
+    readonly Quartz: "§h";
+    readonly Copper: "§n";
+    readonly Iron: "§i";
+    readonly Lapis: "§t";
+    readonly Redstone: "§m";
+    readonly Gold: "§p";
+    readonly Diamond: "§s";
+    readonly Emerald: "§q";
+    readonly Netherite: "§j";
+    readonly Reset: "§r";
+    readonly Bold: "§l";
+    readonly Italic: "§o";
+    readonly Obfuscated: "§k";
+};
 export interface Color {
     r: number;
     g: number;

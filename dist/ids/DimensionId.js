@@ -1,6 +1,5 @@
-export var DimensionEnum;
-(function (DimensionEnum) {
-    DimensionEnum["Overworld"] = "minecraft:overworld";
-    DimensionEnum["Nether"] = "minecraft:nether";
-    DimensionEnum["TheEnd"] = "minecraft:the_end";
-})(DimensionEnum || (DimensionEnum = {}));
+export const DimensionEnum = {
+    Overworld: "minecraft:overworld",
+    Nether: "minecraft:nether",
+    TheEnd: "minecraft:the_end",
+};
