@@ -4,12 +4,6 @@ function create(keys, values) {
         result[key] = values[key];
     return result;
 }
-function zipMap(keys, a, b, fn) {
-    const r = {};
-    for (const k of keys)
-        r[k] = fn(a[k], b[k]);
-    return r;
-}
 function mapEach(keys, value, fn) {
     const r = {};
     for (const k of keys)
@@ -17,7 +11,14 @@ function mapEach(keys, value, fn) {
     return r;
 }
 function equal(keys, ...v) {
-    return v.every(vec => keys.every(key => vec[key] === v[0][key]));
+    const first = v[0];
+    if (!first)
+        return true;
+    for (const vec of v)
+        for (const k of keys)
+            if (vec[k] !== first[k])
+                return false;
+    return true;
 }
 function add(keys, ...v) {
     const r = splat(keys, 0);
@@ -27,16 +28,29 @@ function add(keys, ...v) {
     return r;
 }
 function subtract(keys, a, b) {
-    return zipMap(keys, a, b, (x, y) => x - y);
+    const r = {};
+    for (const k of keys)
+        r[k] = a[k] - b[k];
+    return r;
 }
 function multiply(keys, ...v) {
-    return v.reduce((acc, curr) => zipMap(keys, acc, curr, (x, y) => x * y), splat(keys, 1));
+    const r = splat(keys, 1);
+    for (const vec of v)
+        for (const k of keys)
+            r[k] *= vec[k];
+    return r;
 }
 function divide(keys, a, b) {
-    return zipMap(keys, a, b, (x, y) => x / y);
+    const r = {};
+    for (const k of keys)
+        r[k] = a[k] / b[k];
+    return r;
 }
 function scale(keys, value, scalar) {
-    return mapEach(keys, value, x => x * scalar);
+    const r = {};
+    for (const k of keys)
+        r[k] = value[k] * scalar;
+    return r;
 }
 function zero(keys) {
     return splat(keys, 0);
@@ -45,10 +59,18 @@ function one(keys) {
     return splat(keys, 1);
 }
 function max(keys, ...v) {
-    return v.reduce((acc, curr) => zipMap(keys, acc, curr, Math.max), splat(keys, -Infinity));
+    const r = splat(keys, -Infinity);
+    for (const vec of v)
+        for (const k of keys)
+            r[k] = Math.max(r[k], vec[k]);
+    return r;
 }
 function min(keys, ...v) {
-    return v.reduce((acc, curr) => zipMap(keys, acc, curr, Math.min), splat(keys, Infinity));
+    const r = splat(keys, Infinity);
+    for (const vec of v)
+        for (const k of keys)
+            r[k] = Math.min(r[k], vec[k]);
+    return r;
 }
 function floor(keys, value) {
     return mapEach(keys, value, Math.floor);
@@ -66,17 +88,27 @@ function splat(keys, value = 1) {
     return r;
 }
 function random(keys, minValue = 0, maxValue = 1) {
-    return create(keys, Object.fromEntries(keys.map(key => [key, Math.random() * (maxValue - minValue) + minValue])));
+    const r = {};
+    const span = maxValue - minValue;
+    for (const k of keys)
+        r[k] = Math.random() * span + minValue;
+    return r;
 }
 function lenSq(keys, value) {
-    return keys.reduce((sum, key) => sum + value[key] * value[key], 0);
+    let s = 0;
+    for (const k of keys)
+        s += value[k] * value[k];
+    return s;
 }
 function len(keys, value) {
     return Math.sqrt(lenSq(keys, value));
 }
 function normalize(keys, value) {
-    const length = len(keys, value);
-    return length === 0 ? splat(keys, 0) : mapEach(keys, value, x => x / length);
+    const l = Math.sqrt(lenSq(keys, value));
+    const r = {};
+    for (const k of keys)
+        r[k] = l === 0 ? 0 : value[k] / l;
+    return r;
 }
 function distanceSq(keys, a, b) {
     let s = 0;
@@ -90,13 +122,25 @@ function distance(keys, a, b) {
     return Math.sqrt(distanceSq(keys, a, b));
 }
 function dot(keys, a, b) {
-    return keys.reduce((sum, key) => sum + a[key] * b[key], 0);
+    let s = 0;
+    for (const k of keys)
+        s += a[k] * b[k];
+    return s;
 }
 function lerp(keys, a, b, t) {
-    return zipMap(keys, a, b, (x, y) => x + (y - x) * t);
+    const r = {};
+    for (const k of keys)
+        r[k] = a[k] + (b[k] - a[k]) * t;
+    return r;
 }
 function inRange(keys, value, from, to) {
-    return keys.every(key => value[key] >= Math.min(from[key], to[key]) && value[key] <= Math.max(from[key], to[key]));
+    for (const k of keys) {
+        const lo = Math.min(from[k], to[k]);
+        const hi = Math.max(from[k], to[k]);
+        if (value[k] < lo || value[k] > hi)
+            return false;
+    }
+    return true;
 }
 function isVectorType(keys, value) {
     return typeof value === "object" && value !== null && keys.every(key => typeof value[key] === "number");

@@ -8,12 +8,6 @@ function create<K extends string>(keys: readonly K[], values: Record<K, number>)
 	return result;
 }
 
-function zipMap<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: VectorKeys<K>, fn: (x: number, y: number) => number): VectorKeys<K> {
-	const r = {} as VectorKeys<K>;
-	for (const k of keys) r[k] = fn(a[k], b[k]);
-	return r;
-}
-
 function mapEach<K extends string>(keys: readonly K[], value: VectorKeys<K>, fn: (x: number) => number): VectorKeys<K> {
 	const r = {} as VectorKeys<K>;
 	for (const k of keys) r[k] = fn(value[k]);
@@ -21,7 +15,10 @@ function mapEach<K extends string>(keys: readonly K[], value: VectorKeys<K>, fn:
 }
 
 function equal<K extends string>(keys: readonly K[], ...v: VectorKeys<K>[]): boolean {
-	return v.every(vec => keys.every(key => vec[key] === v[0][key]));
+	const first = v[0];
+	if (!first) return true;
+	for (const vec of v) for (const k of keys) if (vec[k] !== first[k]) return false;
+	return true;
 }
 
 function add<K extends string>(keys: readonly K[], ...v: VectorKeys<K>[]): VectorKeys<K> {
@@ -31,19 +28,27 @@ function add<K extends string>(keys: readonly K[], ...v: VectorKeys<K>[]): Vecto
 }
 
 function subtract<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: VectorKeys<K>): VectorKeys<K> {
-	return zipMap(keys, a, b, (x, y) => x - y);
+	const r = {} as VectorKeys<K>;
+	for (const k of keys) r[k] = a[k] - b[k];
+	return r;
 }
 
 function multiply<K extends string>(keys: readonly K[], ...v: VectorKeys<K>[]): VectorKeys<K> {
-	return v.reduce((acc, curr) => zipMap(keys, acc, curr, (x, y) => x * y), splat(keys, 1));
+	const r = splat(keys, 1);
+	for (const vec of v) for (const k of keys) r[k] *= vec[k];
+	return r;
 }
 
 function divide<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: VectorKeys<K>): VectorKeys<K> {
-	return zipMap(keys, a, b, (x, y) => x / y);
+	const r = {} as VectorKeys<K>;
+	for (const k of keys) r[k] = a[k] / b[k];
+	return r;
 }
 
 function scale<K extends string>(keys: readonly K[], value: VectorKeys<K>, scalar: number): VectorKeys<K> {
-	return mapEach(keys, value, x => x * scalar);
+	const r = {} as VectorKeys<K>;
+	for (const k of keys) r[k] = value[k] * scalar;
+	return r;
 }
 
 function zero<K extends string>(keys: readonly K[]): VectorKeys<K> {
@@ -55,12 +60,17 @@ function one<K extends string>(keys: readonly K[]): VectorKeys<K> {
 }
 
 function max<K extends string>(keys: readonly K[], ...v: VectorKeys<K>[]): VectorKeys<K> {
-	return v.reduce((acc, curr) => zipMap(keys, acc, curr, Math.max), splat(keys, -Infinity));
+	const r = splat(keys, -Infinity);
+	for (const vec of v) for (const k of keys) r[k] = Math.max(r[k], vec[k]);
+	return r;
 }
 
 function min<K extends string>(keys: readonly K[], ...v: VectorKeys<K>[]): VectorKeys<K> {
-	return v.reduce((acc, curr) => zipMap(keys, acc, curr, Math.min), splat(keys, Infinity));
+	const r = splat(keys, Infinity);
+	for (const vec of v) for (const k of keys) r[k] = Math.min(r[k], vec[k]);
+	return r;
 }
+
 
 function floor<K extends string>(keys: readonly K[], value: VectorKeys<K>): VectorKeys<K> {
 	return mapEach(keys, value, Math.floor);
@@ -81,11 +91,16 @@ function splat<K extends string>(keys: readonly K[], value = 1): VectorKeys<K> {
 }
 
 function random<K extends string>(keys: readonly K[], minValue = 0, maxValue = 1): VectorKeys<K> {
-	return create(keys, Object.fromEntries(keys.map(key => [key, Math.random() * (maxValue - minValue) + minValue])) as Record<K, number>);
+	const r = {} as VectorKeys<K>;
+	const span = maxValue - minValue;
+	for (const k of keys) r[k] = Math.random() * span + minValue;
+	return r;
 }
 
 function lenSq<K extends string>(keys: readonly K[], value: VectorKeys<K>): number {
-	return keys.reduce((sum, key) => sum + value[key] * value[key], 0);
+	let s = 0;
+	for (const k of keys) s += value[k] * value[k];
+	return s;
 }
 
 function len<K extends string>(keys: readonly K[], value: VectorKeys<K>): number {
@@ -93,8 +108,10 @@ function len<K extends string>(keys: readonly K[], value: VectorKeys<K>): number
 }
 
 function normalize<K extends string>(keys: readonly K[], value: VectorKeys<K>): VectorKeys<K> {
-	const length = len(keys, value);
-	return length === 0 ? splat(keys, 0) : mapEach(keys, value, x => x / length);
+	const l = Math.sqrt(lenSq(keys, value));
+	const r = {} as VectorKeys<K>;
+	for (const k of keys) r[k] = l === 0 ? 0 : value[k] / l;
+	return r;
 }
 
 function distanceSq<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: VectorKeys<K>): number {
@@ -108,15 +125,24 @@ function distance<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: Vec
 }
 
 function dot<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: VectorKeys<K>): number {
-	return keys.reduce((sum, key) => sum + a[key] * b[key], 0);
+	let s = 0;
+	for (const k of keys) s += a[k] * b[k];
+	return s;
 }
 
 function lerp<K extends string>(keys: readonly K[], a: VectorKeys<K>, b: VectorKeys<K>, t: number): VectorKeys<K> {
-	return zipMap(keys, a, b, (x, y) => x + (y - x) * t);
+	const r = {} as VectorKeys<K>;
+	for (const k of keys) r[k] = a[k] + (b[k] - a[k]) * t;
+	return r;
 }
 
 function inRange<K extends string>(keys: readonly K[], value: VectorKeys<K>, from: VectorKeys<K>, to: VectorKeys<K>): boolean {
-	return keys.every(key => value[key] >= Math.min(from[key], to[key]) && value[key] <= Math.max(from[key], to[key]));
+	for (const k of keys) {
+		const lo = Math.min(from[k], to[k]);
+		const hi = Math.max(from[k], to[k]);
+		if (value[k] < lo || value[k] > hi) return false;
+	}
+	return true;
 }
 
 function isVectorType<K extends string>(keys: readonly K[], value: unknown): value is VectorKeys<K> {
